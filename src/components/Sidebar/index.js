@@ -5,12 +5,12 @@ import styles from './styles.module.styl'
 
 function Sidebar (props) {
   return (
-    <header className={styles.sidebar}>
+    <div className={styles.sidebar}>
       <a href='' className={styles.arrowUp}>
         <ArrowUp />
       </a>
       123
-    </header>
+    </div>
   )
 }
 
