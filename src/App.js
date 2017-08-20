@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Sidebar from './components/Sidebar'
 import Header from './components/Header'
-import Section from './components/Section'
+import SectionsContainer from './containers/SectionsContainer'
 import styles from './styles.module.styl'
 
 class App extends Component {
@@ -11,11 +11,7 @@ class App extends Component {
         <Header />
         <div>
           <Sidebar />
-          <main className={styles.main}>
-            <Section />
-            <Section />
-            <Section />
-          </main>
+          <SectionsContainer className={styles.main} />
         </div>
       </div>
     )

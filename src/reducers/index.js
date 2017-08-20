@@ -1,6 +1,6 @@
-import navReducer from './navReducer'
+import sectionReducer from './sectionReducer'
 import {combineReducers} from 'redux'
 
 export default combineReducers({
-  nav: navReducer
+  section: sectionReducer
 })
