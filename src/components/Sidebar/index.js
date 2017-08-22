@@ -6,9 +6,9 @@ import styles from './styles.module.styl'
 function Sidebar (props) {
   return (
     <div className={styles.sidebar}>
-      <a href='' className={styles.arrowUp}>
+      <div href='' className={styles.arrowUp} onClick={props.goToTop}>
         <ArrowUp />
-      </a>
+      </div>
       123
     </div>
   )

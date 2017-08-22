@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import ScrollableAnchor from 'react-scrollable-anchor'
-import throttle from 'lodash/throttle'
 import Section from '../components/Section'
 
 class Sections extends Component {
@@ -16,8 +15,8 @@ class Sections extends Component {
     return (
       <main>
         {this.images.map((image, id) => {
-          console.log(image + '     ' + id)
-          return <Section image={image} id={id} />
+          console.log(id)
+          return <Section image={image} id={id} key={'pic-' + id} />
         }) }
       </main>
     )
