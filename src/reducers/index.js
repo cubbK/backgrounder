@@ -1,6 +1,6 @@
-import sectionReducer from './sectionReducer'
+import imagesReducer from './imagesReducer'
 import {combineReducers} from 'redux'
 
 export default combineReducers({
-  section: sectionReducer
+  images: imagesReducer
 })
