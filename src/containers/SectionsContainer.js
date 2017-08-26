@@ -13,14 +13,18 @@ class Sections extends Component {
   }
 
   async fetchData () {
-    const image = await this.fetchImage(2017, 5, 5)
-    this.props.addImage(image.data)
-    return [image]
+    let images = []
+    for (let i = 0; i < 5; i++) {
+      const image = await this.fetchImage(2017, 5, 5)
+      images.push(image)
+      this.props.addImage(image.data)
+    }
+    return images
   }
 
   async componentDidMount () {
     await this.fetchData()
-    console.log(this.props.images)
+    this.props.substractDate(1)
   }
 
   render () {
@@ -41,7 +45,14 @@ class Sections extends Component {
             <b>Yay! You have seen it all</b>
           </p>
         }>
-        <Section id={0} image={this.props.images[0] && this.props.images[0].url} />
+        {/*<Section id={0} image={this.props.images[0] && this.props.images[0].url} />*/
+          console.log(this.props.images)
+        }
+        {this.props.images.map((el, id) => {
+          return (
+            <Section id={id} key={'section-' + id} image={this.props.images[0] && this.props.images[0].url} />
+          )
+        })}
       </InfiniteScroll>
     )
   }
@@ -49,7 +60,8 @@ class Sections extends Component {
 
 const mapStateToProps = state => {
   return {
-    images: state.images
+    images: state.images,
+    date: state.date
   }
 }
 
@@ -60,7 +72,14 @@ const mapDispatchToProps = dispatch => {
         'type': 'ADD_IMAGE',
         'payload': image
       })
+    },
+    substractDate: amount => {
+      dispatch({
+        'type': 'SUBSTRACT_DATE',
+        'payload': amount
+      })
     }
+
   }
 }
 
