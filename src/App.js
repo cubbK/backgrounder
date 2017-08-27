@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import SidebarContainer from './containers/SidebarContainer'
 import Header from './components/Header'
 import SectionsContainer from './containers/SectionsContainer'
 import styles from './styles.module.styl'
@@ -14,7 +13,6 @@ class App extends Component {
       <div>
         <Header />
         <div>
-          <SidebarContainer />
           <SectionsContainer className={styles.main} />
         </div>
       </div>
