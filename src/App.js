@@ -7,10 +7,6 @@ import { goToTop } from 'react-scrollable-anchor'
 
 class App extends Component {
   componentDidMount () {
-    // axios.get('https://api.nasa.gov/planetary/apod?hd=true&date=2015-5-5&api_key=aG61HfHn7T4yzG1Iup2tdHa3YhQ7ENtAtUvmdTbs')
-    // .then(response => {
-    //   console.log(response)
-    // })
     goToTop()
   }
   render () {

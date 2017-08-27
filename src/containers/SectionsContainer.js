@@ -8,23 +8,35 @@ class Sections extends Component {
   fetchImage (year, month, day) {
     return axios.get(`https://api.nasa.gov/planetary/apod?hd=true&date=${year}-${month}-${day}&api_key=aG61HfHn7T4yzG1Iup2tdHa3YhQ7ENtAtUvmdTbs`)
     .then(response => {
+      if (response.media_type === 'video') {
+        throw new Error('It"s a video, not image')
+      }
       return response
+    }).catch(err => {
+      console.log('err: ' + err)
     })
   }
 
   async fetchData () {
     let images = []
-    for (let i = 0; i < 5; i++) {
-      const image = await this.fetchImage(2017, 5, 5)
+    console.log('intial date:' + Date(this.props.date))
+    while (images.length !== 6) {
+      const date = new Date(this.props.date)
+      const year = date.getFullYear()
+      const month = date.getMonth() + 1
+      const day = date.getDate()
+      console.log('date:' + year + '-' + month + '-' + day)
+      const image = await this.fetchImage(year, month, day)
       images.push(image)
-      this.props.addImage(image.data)
+      image && this.props.addImage(image.data)
+      this.props.substractDate(1)
     }
     return images
   }
 
   async componentDidMount () {
     await this.fetchData()
-    this.props.substractDate(1)
+    this.props.substractDate(120)
   }
 
   render () {
@@ -45,12 +57,9 @@ class Sections extends Component {
             <b>Yay! You have seen it all</b>
           </p>
         }>
-        {/*<Section id={0} image={this.props.images[0] && this.props.images[0].url} />*/
-          console.log(this.props.images)
-        }
         {this.props.images.map((el, id) => {
           return (
-            <Section id={id} key={'section-' + id} image={this.props.images[0] && this.props.images[0].url} />
+            <Section id={id} key={'section-' + id} image={el && el.url} />
           )
         })}
       </InfiniteScroll>
