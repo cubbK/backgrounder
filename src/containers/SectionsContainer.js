@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Section from '../components/Section'
-import InfiniteScroll from 'react-infinite-scroll-component'
+import InfiniteScroll from 'redux-infinite-scroll'
 import axios from 'axios'
 import {connect} from 'react-redux'
 
@@ -19,18 +19,15 @@ class Sections extends Component {
   }
 
   async fetchData () {
-    let images = []
-    while (images.length !== 5) {
-      const date = new Date(this.props.date)
-      const year = date.getFullYear()
-      const month = date.getMonth() + 1
-      const day = date.getDate()
-      const image = await this.fetchImage(year, month, day)
-      images.push(image)
-      image && this.props.addImage(image.data)
-      this.props.substractDate()
-    }
-    return this.props.images
+    const date = new Date(this.props.date)
+    const year = date.getFullYear()
+    const month = date.getMonth() + 1
+    const day = date.getDate()
+    const image = await this.fetchImage(year, month, day)
+    image && this.props.addImage(image.data)
+    this.props.substractDate()
+
+    return image
   }
 
   async componentDidMount () {
@@ -40,28 +37,9 @@ class Sections extends Component {
 
   render () {
     return (
-      <InfiniteScroll
-        // pullDownToRefresh
-        // pullDownToRefreshContent={
-        //   <h3 style={{textAlign: 'center'}}>&#8595; Pull down to refresh</h3>
-        // }
-        releaseToRefreshContent={
-          <h3 style={{textAlign: 'center'}}>&#8593; Release to refresh</h3>
-        }
-        // refreshFunction={this.refresh}
-        next={this.fetchData}
-        loader={<h4>Loading...</h4>}
-        endMessage={
-          <p style={{textAlign: 'center'}}>
-            <b>Yay! You have seen it all</b>
-          </p>
-        }>
-        {this.props.images.map((el, id) => {
-          return (
-            <Section id={id} key={'section-' + id} image={el && el.url} />
-          )
-        })}
-      </InfiniteScroll>
+      <div>
+        123
+      </div>
     )
   }
 }
