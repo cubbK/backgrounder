@@ -20,24 +20,22 @@ class Sections extends Component {
 
   async fetchData () {
     let images = []
-    while (images.length !== 15) {
+    while (images.length !== 5) {
       const date = new Date(this.props.date)
       const year = date.getFullYear()
       const month = date.getMonth() + 1
       const day = date.getDate()
-      console.log('epoch date:' + this.props.date)
-      console.log('date:' + year + '-' + month + '-' + day)
       const image = await this.fetchImage(year, month, day)
       images.push(image)
       image && this.props.addImage(image.data)
-      this.props.substractDate(1)
+      this.props.substractDate()
     }
-    return images
+    return this.props.images
   }
 
   async componentDidMount () {
     await this.fetchData()
-    this.props.substractDate(1)
+    this.props.substractDate()
   }
 
   render () {
@@ -89,7 +87,6 @@ const mapDispatchToProps = dispatch => {
         'payload': amount
       })
     }
-
   }
 }
 
