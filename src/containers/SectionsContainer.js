@@ -1,38 +1,16 @@
 import React, {Component} from 'react'
 import Section from '../components/Section'
-import InfiniteScroll from 'redux-infinite-scroll'
-import axios from 'axios'
 import {connect} from 'react-redux'
+import {fetchImage} from '../actions/imagesActions'
 
 class Sections extends Component {
-  fetchImage (year, month, day) {
-    return axios.get(`https://api.nasa.gov/planetary/apod?hd=true&date=${year}-${month}-${day}&api_key=aG61HfHn7T4yzG1Iup2tdHa3YhQ7ENtAtUvmdTbs`)
-    .then(response => {
-      if (response.data.media_type === 'video') {
-        throw new Error('It"s a video, not image, passing')
-      } else {
-        return response
-      }
-    }).catch(err => {
-      console.log('err: ' + err)
-    })
-  }
-
-  async fetchData () {
+  componentDidMount () {
     const date = new Date(this.props.date)
     const year = date.getFullYear()
     const month = date.getMonth() + 1
     const day = date.getDate()
-    const image = await this.fetchImage(year, month, day)
-    image && this.props.addImage(image.data)
-    this.props.substractDate()
-
-    return image
-  }
-
-  async componentDidMount () {
-    await this.fetchData()
-    this.props.substractDate()
+    console.log('started')
+    this.props.fetchImage(2016, 5, 5)
   }
 
   render () {
@@ -64,6 +42,9 @@ const mapDispatchToProps = dispatch => {
         'type': 'SUBSTRACT_DATE',
         'payload': amount
       })
+    },
+    fetchImage: (year, month, day) => {
+      dispatch(fetchImage(year, month, day))
     }
   }
 }
