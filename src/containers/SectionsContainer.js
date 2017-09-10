@@ -11,6 +11,7 @@ class Sections extends Component {
     const day = date.getDate()
     console.log('started')
     this.props.fetchImage(2016, 5, 5)
+    this.props.fetchImage(2015, 5, 5)
   }
 
   render () {
