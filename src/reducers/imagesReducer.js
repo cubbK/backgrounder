@@ -7,7 +7,6 @@ function imagesReducer (state = initialState, action) {
   switch (action.type) {
     case 'FETCH_IMAGE_PENDING':
       return {...state, pending: true}
-
     case 'FETCH_IMAGE_FULFILLED':
       let newState = {...state}
       newState.imagesData.push(action.payload.data)

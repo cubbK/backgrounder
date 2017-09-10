@@ -6,7 +6,7 @@ function Section (props) {
   return (
     <ScrollableAnchor id={'pic-' + props.id}>
       <section className={styles.section}>
-        <img src={props.image} alt='Awesome pic' />
+        <img src={props.url} alt='Awesome pic' />
       </section>
     </ScrollableAnchor>
   )

@@ -5,19 +5,33 @@ import {fetchImage} from '../actions/imagesActions'
 
 class Sections extends Component {
   componentDidMount () {
-    const date = new Date(this.props.date)
-    const year = date.getFullYear()
-    const month = date.getMonth() + 1
-    const day = date.getDate()
-    console.log('started')
     this.props.fetchImage(2016, 5, 5)
     this.props.fetchImage(2015, 5, 5)
+    setTimeout(() => {
+      this.props.fetchImage(2014, 5, 5)
+    }, 2000)
+    setTimeout(() => {
+      this.props.fetchImage(2016, 6, 5)
+    }, 2000)
+    setTimeout(() => {
+      this.props.fetchImage(2016, 7, 5)
+    }, 2000)
+    setTimeout(() => {
+      this.props.fetchImage(2016, 8, 5)
+    }, 2000)
+  }
+
+  showImages () {
+    let data = this.props.images.imagesData
+    return data.map((image, id) => {
+      return <Section url={image.url} key={id} id={id} />
+    })
   }
 
   render () {
     return (
       <div>
-        123
+        {this.showImages()}
       </div>
     )
   }
@@ -32,18 +46,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addImage: image => {
-      dispatch({
-        'type': 'ADD_IMAGE',
-        'payload': image
-      })
-    },
-    substractDate: amount => {
-      dispatch({
-        'type': 'SUBSTRACT_DATE',
-        'payload': amount
-      })
-    },
     fetchImage: (year, month, day) => {
       dispatch(fetchImage(year, month, day))
     }
