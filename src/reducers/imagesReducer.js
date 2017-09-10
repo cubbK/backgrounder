@@ -13,13 +13,9 @@ function imagesReducer (state = initialState, action) {
       newState.imagesData.push(action.payload.data)
       newState.pending = false
       return newState
-<<<<<<< HEAD
     case 'FETCH_IMAGE_REJECTED':
       console.log('rejected fetch')
       return state
-=======
-
->>>>>>> a58681f4dd9fee0a25381a3a67e3e59904038709
     default:
       return state
   }
