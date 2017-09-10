@@ -6,7 +6,6 @@ import loggerMiddleware from 'redux-logger'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 const preloadedState = {
-  images: [],
   date: Date.now()
 }
 
