@@ -14,7 +14,7 @@ function imagesReducer (state = initialState, action) {
       return newState
     case 'FETCH_IMAGE_REJECTED':
       console.log('rejected fetch')
-      return state
+      return {...state, pending: false}
     default:
       return state
   }

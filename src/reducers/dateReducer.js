@@ -1,4 +1,6 @@
-function dateReducer (state = null, action) {
+const initialState = Date.now()
+
+function dateReducer (state = initialState, action) {
   switch (action.type) {
     case 'SUBSTRACT_DATE':
       const date = new Date(state)

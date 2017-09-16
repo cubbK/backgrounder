@@ -4,9 +4,7 @@ import thunk from 'redux-thunk'
 import promiseMiddleware from 'redux-promise-middleware'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-const preloadedState = {
-  date: Date.now()
-}
+const preloadedState = {}
 
 export default createStore(reducer, preloadedState, composeWithDevTools(
   applyMiddleware(promiseMiddleware(), thunk)
