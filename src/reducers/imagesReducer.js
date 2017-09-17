@@ -9,7 +9,9 @@ function imagesReducer (state = initialState, action) {
       return {...state, pending: true}
     case 'FETCH_IMAGE_FULFILLED':
       let newState = {...state}
-      newState.imagesData.push(action.payload.data)
+      if (action.payload.data.media_type !== 'video') {
+        newState.imagesData.push(action.payload.data)
+      }
       newState.pending = false
       return newState
     case 'FETCH_IMAGE_REJECTED':
