@@ -45,10 +45,8 @@ class Sections extends Component {
   render () {
     return (
       <div>
-        <Loading />
         {this.showImages()}
         {this.props.pending ? <Loading /> : ''}
-        <Loading />
       </div>
     )
   }
