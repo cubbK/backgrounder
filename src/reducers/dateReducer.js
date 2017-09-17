@@ -1,11 +1,14 @@
-const initialState = Date.now()
+import date from 'date-and-time'
+
+const now = new Date()
+const initialState = date.format(now, 'YYYY/MM/DD')
 
 function dateReducer (state = initialState, action) {
   switch (action.type) {
     case 'SUBSTRACT_DATE':
-      const date = new Date(state)
-      const newDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - 1)
-      return newDate.getTime()
+      let dateObj = date.parse(state, 'YYYY/MM/DD')
+      dateObj = date.addDays(dateObj, -1)
+      return date.format(dateObj, 'YYYY/MM/DD')
     default:
       return state
   }
