@@ -1,0 +1,3 @@
+targets:
+  NasaApod: shared-eu-west-1/cjdtz6828046e0128ogdijl2l
+  default: NasaApod
