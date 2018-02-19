@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import Header from './components/Header'
-import SectionsContainer from './containers/SectionsContainer'
+import Home from './pages/Home'
 import styles from './styles.module.styl'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
@@ -15,10 +14,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <div>
-          <Header />
-          <div>
-            <SectionsContainer className={styles.main} />
-          </div>
+          <Home />
         </div>
       </MuiThemeProvider>
     )
