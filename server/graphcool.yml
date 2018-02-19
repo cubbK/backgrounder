@@ -24,6 +24,11 @@ functions:
       code: src/hello.js
     type: resolver
     schema: src/hello.graphql
+  nasaImage:
+    handler:
+      code: src/nasaImage.js
+    type: resolver
+    schema: src/nasaImage.graphql
 
 
 # Model/Relation permissions are used to limit the API access

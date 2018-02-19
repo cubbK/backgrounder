@@ -1,0 +1,7 @@
+type NasaImagePayload {
+  message: String!
+}
+
+extend type Query {
+  nasaImage(name: String): NasaImagePayload
+}
