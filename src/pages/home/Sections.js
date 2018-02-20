@@ -46,7 +46,14 @@ class Sections extends Component {
   render () {
     return (
       <div>
-        <Section />
+        { 
+          this.props.images.imagesData &&
+          this.props.images.imagesData.map(image => <Section url={ image.url } /> )
+        }
+        {
+          this.props.images.pending && <Loading />
+        }
+        
       </div>
     )
   }
