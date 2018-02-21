@@ -45,7 +45,7 @@ class Sections extends Component {
 
   render () {
     return (
-      <div>
+      <div id='scroll'>
         { 
           this.props.images.imagesData &&
           this.props.images.imagesData.map(image => <Section url={ image.url } /> )
