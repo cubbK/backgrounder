@@ -15,7 +15,7 @@ class Header extends Component {
           Scroll the Universe
         </h1>
         <h2 className={styles.subtitle}>
-          All of it
+          All of It
         </h2>
         <div className={styles.arrow}>
           <Scrollchor to="scroll" className="nav-link" animate={ {duration: 200, easing: easeOutQuad} }>
