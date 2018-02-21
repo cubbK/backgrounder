@@ -48,7 +48,7 @@ class Sections extends Component {
       <div id='scroll'>
         { 
           this.props.images.imagesData &&
-          this.props.images.imagesData.map(image => <Section url={ image.url } /> )
+          this.props.images.imagesData.map(image => <Section url={ image.url } key={ image.url }/> )
         }
         {
           this.props.images.pending && <Loading />

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Home from './pages/Home'
+import './styles.module.styl'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import injectTapEventPlugin from 'react-tap-event-plugin'
