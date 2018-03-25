@@ -7,3 +7,10 @@ export function fetchImage (year, month, day) {
     payload: axios.get(url)
   }
 }
+
+export function changeHoverImageId (id) {
+  return {
+    type: 'CHANGE_HOVER_IMAGE_ID',
+    payload: id
+  }
+}

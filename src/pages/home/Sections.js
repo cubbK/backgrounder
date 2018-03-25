@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Section from './sections/Section'
 import Loading from 'components/Loading'
 import { connect } from 'react-redux'
-import { fetchImage } from 'actions/imagesActions'
+import { fetchImage, changeHoverImageId } from 'actions/imagesActions'
 import { substractDate } from 'actions/dateActions'
 import date from 'date-and-time'
 
@@ -44,9 +44,20 @@ class Sections extends Component {
   render () {
     return (
       <div id='scroll'>
+        {console.log(this.props.images.imagesData)}
         {
           this.props.images.imagesData &&
-          this.props.images.imagesData.map(image => <Section url={image.url} key={image.url} />)
+          this.props.images.imagesData.map((image, id) =>
+            <Section
+              url={image.url}
+              key={image.url}
+              onMouseEnter={() => {
+                this.props.changeHoverImageId(id)
+              }}
+              toShowInfoButton={id === this.props.images.hoverImageId}
+              id={id}
+            />
+          )
         }
         {
           this.props.images.pending && <Loading />
@@ -72,6 +83,9 @@ const mapDispatchToProps = dispatch => {
     },
     substractDate: () => {
       dispatch(substractDate())
+    },
+    changeHoverImageId: (id) => {
+      dispatch(changeHoverImageId(id))
     }
   }
 }

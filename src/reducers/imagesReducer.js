@@ -1,6 +1,7 @@
 const initialState = {
   imagesData: [],
-  pending: false
+  pending: false,
+  hoverImageId: null
 }
 
 function imagesReducer (state = initialState, action) {
@@ -17,6 +18,8 @@ function imagesReducer (state = initialState, action) {
     case 'FETCH_IMAGE_REJECTED':
       console.log('rejected fetch')
       return {...state, pending: false}
+    case 'CHANGE_HOVER_IMAGE_ID':
+      return {...state, hoverImageId: action.payload}
     default:
       return state
   }
