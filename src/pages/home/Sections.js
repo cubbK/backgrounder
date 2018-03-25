@@ -7,15 +7,14 @@ import { substractDate } from 'actions/dateActions'
 import date from 'date-and-time'
 
 class Sections extends Component {
-
   componentDidMount () {
     this.loadSingleImage()
-    
+
     document.addEventListener('scroll', event => {
       const d = document.documentElement
       const offset = d.scrollTop + window.innerHeight
       const height = d.offsetHeight
-      
+
       if ((height - offset < 200) && !this.props.pending) {
         console.log('start fetching')
         this.loadSingleImage()
@@ -38,7 +37,6 @@ class Sections extends Component {
     const year = date.format(dateObj, 'YYYY')
     const month = date.format(dateObj, 'MM')
     const day = date.format(dateObj, 'DD')
-    console.log(year + ' ' + month + ' ' + day)
     this.props.fetchImage(year, month, day)
     this.props.substractDate()
   }
@@ -46,14 +44,14 @@ class Sections extends Component {
   render () {
     return (
       <div id='scroll'>
-        { 
+        {
           this.props.images.imagesData &&
-          this.props.images.imagesData.map(image => <Section url={ image.url } key={ image.url }/> )
+          this.props.images.imagesData.map(image => <Section url={image.url} key={image.url} />)
         }
         {
           this.props.images.pending && <Loading />
         }
-        
+
       </div>
     )
   }

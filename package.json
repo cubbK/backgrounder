@@ -15,6 +15,7 @@
         "react-icons": "^2.2.5",
         "react-infinite-scroller": "^1.0.15",
         "react-redux": "^5.0.6",
+        "react-router-dom": "^4.2.2",
         "react-scroll-to-component": "^1.0.2",
         "react-scrollchor": "^4.2.1",
         "react-tap-event-plugin": "^2.0.1",
