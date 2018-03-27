@@ -7,7 +7,12 @@ import { Animated } from 'react-animated-css'
 const InfoBtn = props =>
 
   <div className={styles.info}>
-    <Animated animationIn='bounceInRight' animationOut='bounceInRight' isVisible style={{ animationDuration: '0.3s' }}>
+    <Animated
+      animationIn='bounceInRight'
+      animationOut='bounceInRight'
+      isVisible style={{ animationDuration: '0.3s' }
+      }
+    >
       <Link to={`/photo/${props.id}`}>
         <RaisedButton label='Info' primary />
       </Link>
