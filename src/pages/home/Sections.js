@@ -44,7 +44,6 @@ class Sections extends Component {
   render () {
     return (
       <div id='scroll'>
-        {console.log(this.props.images.imagesData)}
         {
           this.props.images.imagesData &&
           this.props.images.imagesData.map((image, id) =>
