@@ -20,8 +20,8 @@ class App extends Component {
       <MuiThemeProvider>
         <Router>
           <div>
-            <Route path={`/`} component={Home} exact />
-            <Route path={`/photo/:date`} component={SingleItem} />
+            <Route path={`/`} component={Home} exact ignoreScrollBehavior />
+            <Route path={`/photo/:date`} component={SingleItem} ignoreScrollBehavior />
 
           </div>
         </Router>
