@@ -27,11 +27,11 @@ class CardImage extends React.Component {
       <Card style={{margin: '50px 0'}}>
         {console.log(this.props)}
         <CardMedia
-          overlay={<CardTitle title={ image.title } subtitle={ `Date: ${ image.date }` } />}
+          overlay={<CardTitle title={ `By ${image.copyright}` } />}
         >
           <img src={ image.hdurl } alt={ image.title } style={{width: '100%', height: 'auto'}}/>
         </CardMedia>
-        <CardTitle title='Card title' subtitle='Card subtitle' />
+        <CardTitle title={ image.title } subtitle={ `Date: ${ image.date }`}/>
         <CardText>
           { image.explanation }
         </CardText>
