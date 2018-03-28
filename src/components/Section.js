@@ -6,7 +6,7 @@ const Section = props =>
   <section className={styles.section} onMouseEnter={props.onMouseEnter}>
     <img src={props.url} alt='Awesome pic' />
     {
-      props.toShowInfoButton ? <InfoBtn id={props.id} /> : null
+      props.toShowInfoButton ? <InfoBtn date={props.date} /> : null
     }
   </section>
 

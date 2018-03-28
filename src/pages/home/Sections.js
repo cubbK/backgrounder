@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Section from './sections/Section'
+import Section from 'components/Section'
 import Loading from 'components/Loading'
 import { connect } from 'react-redux'
 import { fetchImage, changeHoverImageId } from 'actions/imagesActions'
@@ -54,7 +54,7 @@ class Sections extends Component {
                 this.props.changeHoverImageId(id)
               }}
               toShowInfoButton={id === this.props.images.hoverImageId}
-              id={id}
+              date={image.date}
             />
           )
         }

@@ -1,9 +1,13 @@
 import React from 'react'
+import CardImage from './singleItem/CardImage'
+import { connect } from 'react-redux'
 
 const SingeItem = props =>
   <div>
     { console.log(props) }
-    123
+    <CardImage />
   </div>
 
-export default SingeItem
+export default connect((state, ownProps) => ({
+  ownProps: ownProps
+}))(SingeItem)

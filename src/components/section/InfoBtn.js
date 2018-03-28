@@ -13,7 +13,7 @@ const InfoBtn = props =>
       isVisible style={{ animationDuration: '0.3s' }
       }
     >
-      <Link to={`/photo/${props.id}`}>
+      <Link to={`/photo/${props.date}`}>
         <RaisedButton label='Info' primary />
       </Link>
     </Animated>
