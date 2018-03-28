@@ -6,23 +6,31 @@ import { fetchImage, changeHoverImageId } from 'actions/imagesActions'
 import { substractDate } from 'actions/dateActions'
 import date from 'date-and-time'
 
+
+
 class Sections extends Component {
+  
+  onScroll = event => {
+    const d = document.documentElement
+    const offset = d.scrollTop + window.innerHeight
+    const height = d.offsetHeight
+
+    if ((height - offset < 200) && !this.props.pending) {
+      console.log('start fetching')
+      this.loadSingleImage()
+      this.loadSingleImage()
+      this.loadSingleImage()
+      this.loadSingleImage()
+    }
+  }
+
   componentDidMount () {
     this.loadSingleImage()
+    document.addEventListener('scroll', this.onScroll)
+  }
 
-    document.addEventListener('scroll', event => {
-      const d = document.documentElement
-      const offset = d.scrollTop + window.innerHeight
-      const height = d.offsetHeight
-
-      if ((height - offset < 200) && !this.props.pending) {
-        console.log('start fetching')
-        this.loadSingleImage()
-        this.loadSingleImage()
-        this.loadSingleImage()
-        this.loadSingleImage()
-      }
-    })
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.onScroll)
   }
 
   showImages () {
