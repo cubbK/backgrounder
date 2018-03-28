@@ -1,13 +1,10 @@
 import React from 'react'
 import CardImage from './singleItem/CardImage'
-import { connect } from 'react-redux'
+import styles from './SingleItem.module.styl'
 
 const SingeItem = props =>
-  <div>
-    { console.log(props) }
-    <CardImage />
+  <div className={styles.container} >
+    <CardImage date={props.match.params.date} />
   </div>
 
-export default connect((state, ownProps) => ({
-  ownProps: ownProps
-}))(SingeItem)
+export default SingeItem

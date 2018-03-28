@@ -21,7 +21,7 @@ class App extends Component {
         <Router>
           <div>
             <Route path={`/`} component={Home} exact />
-            <Route path={`/photo/:photoId`} component={SingleItem} />
+            <Route path={`/photo/:date`} component={SingleItem} />
 
           </div>
         </Router>
