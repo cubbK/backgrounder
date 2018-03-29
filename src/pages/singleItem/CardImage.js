@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
 import { filter, compose, flatten } from 'ramda'
 import { fetchImage } from 'actions/imagesActions'
 import date from 'date-and-time'
+import animate from 'HOCs/animate'
 
 function getItemByDate(state, date) {
   const isTheSameDate = (date1, date2) => date1 === date2
@@ -60,4 +61,7 @@ class CardImage extends React.Component {
   }
 }
 
-export default CardImage
+export default animate({
+  animationDuration: 2,
+  animationIn: 'bounce'
+})(CardImage)
