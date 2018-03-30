@@ -1,4 +1,5 @@
 import { filter } from 'ramda'
+import { set } from 'immutadot'
 
 const initialState = {
   imagesData: [],
@@ -11,10 +12,9 @@ function imagesReducer (state = initialState, action) {
     case 'FETCH_IMAGE_PENDING':
       return {...state, pending: true}
     case 'FETCH_IMAGE_FULFILLED':
-      let newState = {...state}
-      if (action.payload.data.media_type !== 'video') {
-        isNotDuplicate(action.payload.data, state.imagesData) && 
-        newState.imagesData.push(action.payload.data)
+      let newState = { ...state }
+      if (action.payload.data.media_type !== 'video' && isNotDuplicate(action.payload.data, state.imagesData)) {
+        newState = set(state, 'imagesData', [...state.imagesData, action.payload.data])
       }
       newState.pending = false
       return newState
