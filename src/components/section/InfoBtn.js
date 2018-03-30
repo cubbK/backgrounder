@@ -10,7 +10,8 @@ const InfoBtn = props =>
     <Animated
       animationIn='bounceInRight'
       animationOut='bounceInRight'
-      isVisible style={{ animationDuration: '0.3s' }
+      isVisible 
+      style={{ animationDuration: '0.3s' }
       }
     >
       <Link to={`/photo/${props.date}`}>
