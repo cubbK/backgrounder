@@ -14,7 +14,7 @@ const InfoBtn = props =>
       style={{ animationDuration: '0.3s' }
       }
     >
-      <Link to={`/photo/${props.date}`}>
+      <Link to={process.env.PUBLIC_URL + `/photo/${props.date}`}>
         <RaisedButton label='Info' primary />
       </Link>
     </Animated>

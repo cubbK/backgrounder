@@ -16,13 +16,13 @@ injectTapEventPlugin()
 
 class App extends Component {
   render () {
+    console.log(process.env.PUBLIC_URL)
     return (
       <MuiThemeProvider>
         <Router>
           <div>
-            <Route path={`/`} component={Home} exact ignoreScrollBehavior />
-            <Route path={`/photo/:date`} component={SingleItem} ignoreScrollBehavior />
-
+            <Route path={process.env.PUBLIC_URL + `/`} component={Home} exact ignoreScrollBehavior />
+            <Route path={process.env.PUBLIC_URL + `/photo/:date`} component={SingleItem} ignoreScrollBehavior />
           </div>
         </Router>
 
