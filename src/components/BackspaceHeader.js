@@ -6,11 +6,11 @@ const style = {
   margin: '20px'
 }
 
+const back = () => window.history.back()
+
 const BackspaceHeader = props =>
-  <Link to='/'>
-    <FloatingActionButton style={style}>
+    <FloatingActionButton style={style} onClick={back}>
       <BackspaceIcon />
     </FloatingActionButton>
-  </Link>
 
 export default BackspaceHeader

@@ -19,7 +19,7 @@ function imagesReducer (state = initialState, action) {
       newState.pending = false
       return newState
     case 'FETCH_IMAGE_REJECTED':
-      console.log('rejected fetch')
+      console.log('rejected fetch', action)
       return {...state, pending: false}
     case 'CHANGE_HOVER_IMAGE_ID':
       return {...state, hoverImageId: action.payload}

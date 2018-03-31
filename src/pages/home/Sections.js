@@ -27,6 +27,7 @@ class Sections extends Component {
   componentDidMount () {
     this.loadSingleImage()
     document.addEventListener('scroll', this.onScroll)
+    console.log(window.history)
   }
 
   componentWillUnmount() {
